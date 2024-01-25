@@ -49,8 +49,9 @@ public class LoginServlet extends HttpServlet {
 			if (loggedUser != null) {
 				session.setAttribute("loggedUser", loggedUser);
 			}
-			RequestDispatcher dispatcher =request.getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+			//RequestDispatcher dispatcher =request.getRequestDispatcher("/index");
+			//dispatcher.forward(request, response);
+			response.sendRedirect("index");
 		}
 	}
 
@@ -84,9 +85,11 @@ public class LoginServlet extends HttpServlet {
 			cookie.setMaxAge(20);
 			
 			response.addCookie(cookie);
+			request.getSession().setAttribute("loggedUser", loggedUser);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-			dispatcher.forward(request, response);
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("/index");
+			//dispatcher.forward(request, response);
+			response.sendRedirect("index?username=" + username);
 		} else
 			response.sendRedirect("login");
 	
