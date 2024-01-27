@@ -28,7 +28,7 @@
  		var="contact" 
  		varStatus="status" 
  	>	 
- 		${contact} <br> 
+ 		<a href="chat?username=${username}&contact=${contact}">${contact}</a> <br> 
  	</c:forEach>
  	<br>
 	

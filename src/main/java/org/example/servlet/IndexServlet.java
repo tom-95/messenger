@@ -43,6 +43,7 @@ public class IndexServlet extends HttpServlet {
 		}
 
 		session.setAttribute("contacts", contacts);
+		session.setAttribute("username", username);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
